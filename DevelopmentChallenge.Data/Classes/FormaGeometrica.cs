@@ -108,11 +108,11 @@ namespace DevelopmentChallenge.Data.Classes
                 // FOOTER
                 sb.Append("TOTAL:<br/>");
                 sb.Append(numeroCuadrados + numeroCirculos + numeroTriangulos + " " + (idioma == Castellano ? "formas" : "shapes") + " ");
-                sb.Append((idioma == Castellano ? "Perimetro " : "Perimeter ") + " " + (perimetroCuadrados + perimetroTriangulos + perimetroCirculos).ToString("#.##") + " ");
+                sb.Append((idioma == Castellano ? "Perimetro " : "Perimeter ") + (perimetroCuadrados + perimetroTriangulos + perimetroCirculos).ToString("#.##") + " ");
                 sb.Append("Area " + (areaCuadrados + areaCirculos + areaTriangulos).ToString("#.##"));
             }
 
-            return sb.ToString();
+            return sb.ToString().Replace('.',',');
         }
 
         private static string ObtenerLinea(int cantidad, decimal area, decimal perimetro, int tipo, int idioma)
